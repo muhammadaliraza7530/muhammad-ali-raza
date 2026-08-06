@@ -1,233 +1,155 @@
- 
-        // Mobile Navigation
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+// Mobile Navigation Toggle & Overlay Logic
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.querySelector(".nav-links");
+const mobileOverlay = document.getElementById("mobile-overlay");
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.innerHTML = navLinks.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // GSAP Animations
-        function initAnimations() {
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Hero section animation
-            gsap.from('.hero-content h1', {
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                ease: 'power3.out'
-            });
-
-            gsap.from('.hero-content p', {
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                delay: 0.3,
-                ease: 'power3.out'
-            });
-
-            gsap.from('.cta-button', {
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                delay: 0.6,
-                ease: 'power3.out'
-            });
-
-            gsap.from('.social-links a', {
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                delay: 0.9,
-                stagger: 0.1,
-                ease: 'power3.out'
-            });
-
-            gsap.from('.stat-item', {
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                delay: 1.2,
-                stagger: 0.1,
-                ease: 'power3.out'
-            });
-
-            // Section animations
-            gsap.utils.toArray('section').forEach(section => {
-                if (section.id !== 'hero') {
-                    gsap.from(section, {
-                        scrollTrigger: {
-                            trigger: section,
-                            start: 'top 80%',
-                            toggleActions: 'play none none none'
-                        },
-                        y: 50,
-                        opacity: 0,
-                        duration: 1,
-                        ease: 'power3.out'
-                    });
-                }
-            });
-
-            // Skill cards animation
-            gsap.utils.toArray('.skill-card').forEach((card, i) => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    },
-                    y: 50,
-                    opacity: 0,
-                    duration: 0.5,
-                    delay: i * 0.1,
-                    ease: 'power3.out'
-                });
-            });
-
-            // Project cards animation
-            gsap.utils.toArray('.project-card').forEach((card, i) => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    },
-                    y: 50,
-                    opacity: 0,
-                    duration: 0.5,
-                    delay: i * 0.1,
-                    ease: 'power3.out'
-                });
-            });
-
-            // Testimonial cards animation
-            gsap.utils.toArray('.testimonial-card').forEach((card, i) => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    },
-                    x: i % 2 === 0 ? -50 : 50,
-                    opacity: 0,
-                    duration: 0.5,
-                    delay: i * 0.1,
-                    ease: 'power3.out'
-                });
-            });
-        }
-
-        // Create floating elements
-        function createFloatingElements() {
-            const colors = ['rgba(0, 168, 255, 0.1)', 'rgba(0, 168, 255, 0.07)', 'rgba(0, 168, 255, 0.05)'];
-            
-            for (let i = 0; i < 10; i++) {
-                const element = document.createElement('div');
-                element.classList.add('floating-element');
-                
-                // Random properties
-                const size = Math.random() * 200 + 50;
-                const posX = Math.random() * window.innerWidth;
-                const posY = Math.random() * window.innerHeight;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const blur = Math.random() * 10 + 5;
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * 5;
-                
-                // Apply styles
-                element.style.width = `${size}px`;
-                element.style.height = `${size}px`;
-                element.style.left = `${posX}px`;
-                element.style.top = `${posY}px`;
-                element.style.background = color;
-                element.style.backdropFilter = `blur(${blur}px)`;
-                element.style.webkitBackdropFilter = `blur(${blur}px)`;
-                
-                // Add to body
-                document.body.appendChild(element);
-                
-                // Animate with GSAP
-                gsap.to(element, {
-                    x: `+=${(Math.random() - 0.5) * 100}`,
-                    y: `+=${(Math.random() - 0.5) * 100}`,
-                    duration: duration,
-                    delay: delay,
-                    repeat: -1,
-                    yoyo: true,
-                    ease: 'sine.inOut'
-                });
-            }
-        }
-
-        // Dark/Light Mode Toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        let isDarkMode = true;
-
-        themeToggle.addEventListener('click', () => {
-            isDarkMode = !isDarkMode;
-            
-            if (isDarkMode) {
-                document.body.style.backgroundColor = '#0a0a0a';
-                document.body.style.color = '#ffffff';
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            } else {
-                document.body.style.backgroundColor = '#f5f5f5';
-                document.body.style.color = '#333333';
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
-        });
-
-        // Animate progress bars on scroll
-        function animateProgressBars() {
-            const progressBars = document.querySelectorAll('.progress-fill');
-            
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                
-                ScrollTrigger.create({
-                    trigger: bar,
-                    start: 'top 80%',
-                    onEnter: () => {
-                        gsap.to(bar, {
-                            width: width,
-                            duration: 1.5,
-                            ease: 'power3.out'
-                        });
-                    }
-                });
-            });
-        }
-
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            initAnimations();
-            createFloatingElements();
-            animateProgressBars();
-        });
+function toggleMenu() {
+    hamburger.classList.toggle("active");
+    navLinks.classList.toggle("active");
+    mobileOverlay.classList.toggle("active");
     
+    // Prevent body scroll when menu is open
+    if (navLinks.classList.contains("active")) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Open menu when clicking hamburger
+hamburger.addEventListener("click", toggleMenu);
+
+// Close menu when clicking overlay
+mobileOverlay.addEventListener("click", toggleMenu);
+
+// Close menu when clicking a link inside the drawer
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        if (navLinks.classList.contains("active")) {
+            toggleMenu();
+        }
+    });
+});
+
+// Navbar Scroll Effect & Active Link Highlighting
+const navbar = document.querySelector('.navbar');
+const sections = document.querySelectorAll('section');
+const navLinkItems = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+    // Navbar background change
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+
+    // Active Link Highlighting
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100; // Adjust offset for navbar height
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinkItems.forEach(link => {
+        link.classList.remove('active-link');
+        if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active-link');
+        }
+    });
+});
+
+// Typing Animation for Hero Subtitle
+const typingText = document.getElementById('typing-text');
+const roles = ["Full Stack Developer", "MERN Stack Expert", "React & Next.js Developer", "Backend Engineer"];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+    const currentRole = roles[roleIndex];
+    
+    if (isDeleting) {
+        typingText.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        typingText.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    let typeSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === currentRole.length) {
+        typeSpeed = 2000; // Pause at end
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 500; // Pause before typing next
+    }
+
+    setTimeout(typeEffect, typeSpeed);
+}
+
+// Start typing effect on load
+document.addEventListener('DOMContentLoaded', typeEffect);
+
+// GSAP Animations
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animations
+        gsap.from('.hero-badge', { duration: 1, y: -20, opacity: 0, ease: 'power3.out' });
+        gsap.from('.hero-content h1', { duration: 1, y: 50, opacity: 0, delay: 0.1, ease: 'power3.out' });
+        gsap.from('.hero-subtitle', { duration: 1, y: 50, opacity: 0, delay: 0.2, ease: 'power3.out' });
+        gsap.from('.hero-content p', { duration: 1, y: 50, opacity: 0, delay: 0.3, ease: 'power3.out' });
+        gsap.from('.hero-buttons', { duration: 1, y: 50, opacity: 0, delay: 0.4, ease: 'power3.out' });
+        gsap.from('.social-links a', { duration: 1, y: 50, opacity: 0, delay: 0.6, stagger: 0.1, ease: 'power3.out' });
+        gsap.from('.stats-container', { duration: 1, y: 50, opacity: 0, delay: 0.8, ease: 'power3.out' });
+        gsap.from('.hero-image-wrapper', { duration: 1.2, x: 100, opacity: 0, delay: 0.5, ease: 'power3.out' });
+        gsap.from('.floating-icon', { duration: 1, scale: 0, opacity: 0, delay: 1, stagger: 0.2, ease: 'back.out(1.7)' });
+
+        // Section Animations
+        gsap.utils.toArray('section').forEach(section => {
+            if (section.id !== 'hero') {
+                gsap.from(section, {
+                    scrollTrigger: { trigger: section, start: 'top 80%' },
+                    y: 50, opacity: 0, duration: 1, ease: 'power3.out'
+                });
+            }
+        });
+
+        // Card Animations
+        gsap.utils.toArray('.skill-card, .project-card, .contact-item').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: { trigger: card, start: 'top 85%' },
+                y: 50, opacity: 0, duration: 0.6, delay: i * 0.1, ease: 'power3.out'
+            });
+        });
+
+        // Animate Progress Bars
+        gsap.utils.toArray('.progress-fill').forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            ScrollTrigger.create({
+                trigger: bar,
+                start: 'top 85%',
+                onEnter: () => gsap.to(bar, { width: width, duration: 1.5, ease: 'power3.out' })
+            });
+        });
+    }
+});
+
+// Dark/Light Mode Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const isLightMode = document.body.classList.contains('light-mode');
+    themeIcon.classList.toggle('fa-sun', isLightMode);
+    themeIcon.classList.toggle('fa-moon', !isLightMode);
+});

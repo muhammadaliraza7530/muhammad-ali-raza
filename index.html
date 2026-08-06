@@ -1,359 +1,297 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M. Ali Raza - Full Stack Developer</title>
+
+    <!-- Primary Meta Tags (SEO) -->
+    <title>M. Ali Raza - Full Stack Developer | MERN & Next.js Expert</title>
+    <meta name="title" content="M. Ali Raza - Full Stack Developer | MERN & Next.js Expert">
+    <meta name="description" content="I am M. Ali Raza, a Full Stack Developer with 2 years of experience specializing in React, Next.js, Node.js, and MongoDB. Hire me for scalable web applications.">
+    <meta name="keywords" content="Full Stack Developer, MERN Stack Developer, React Developer, Next.js Developer, Node.js, MongoDB, Hire Web Developer, M. Ali Raza">
+    <meta name="author" content="M. Ali Raza">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maliraza.dev/">
+    <meta property="og:title" content="M. Ali Raza - Full Stack Developer">
+    <meta property="og:description" content="2+ Years Experience building scalable web apps with React, Next.js, and Node.js.">
+    <meta property="og:image" content="my image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="M. Ali Raza - Full Stack Developer">
+    <meta property="twitter:description" content="2+ Years Experience building scalable web apps with React, Next.js, and Node.js.">
+    <meta property="twitter:image" content="my image.png">
+
+    <link rel="canonical" href="https://maliraza.dev/">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Structured Data for SEO (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "M. Ali Raza",
+      "jobTitle": "Full Stack Developer",
+      "url": "https://maliraza.dev/",
+      "sameAs": [
+        "https://github.com/",
+        "https://www.linkedin.com/",
+        "https://twitter.com/"
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <a href="#" class="logo">M. Ali <span>Raza</span></a>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-        </div>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">M. Ali <span>Raza</span></a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-cta">Hire Me</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Right-Aligned Human Image -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span>M. Ali Raza</span></h1>
-            <p>Creative Frontend Developer with 4 Years of Experience crafting beautiful, functional, and user-friendly web experiences.</p>
-            <a href="#contact" class="cta-button">Get In Touch</a>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Projects</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">4+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Client Satisfaction</div>
-                </div>
-            </div>
-        </div>
-        <img src="my image.png" alt="">
-    </section>
+    <!-- Mobile Menu Overlay (Background Dim Effect) -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About <span>Me</span></h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Who am I?</h3>
-                <p>I'm a passionate frontend developer with 4 years of experience in creating modern, responsive, and interactive web applications. My journey in web development started when I was in college, and since then I've been constantly learning and improving my skills.</p>
-                <p>I specialize in JavaScript frameworks like React and Vue.js, but I'm also comfortable working with backend technologies when needed. I believe in writing clean, maintainable code and creating intuitive user experiences.</p>
-                <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities.</p>
-                <a href="#" class="cta-button">Download CV</a>
-            </div>
-            <div class="about-image">
-                <div class="profile-card">
-                    <div class="card-front">
-                        <img src="my image.png" alt="Profile Picture" class="profile-pic">
-                        <h3>M. Ali Raza</h3>
-                        <p>Frontend Developer</p>
-                    </div>
-                    <div class="card-back">
-                        <p>"I turn ideas into interactive realities with clean code and creative solutions."</p>
-                    </div>
+    <main>
+        <!-- Hero Section (Layout: Content Left, Image Right for Desktop/Medium) -->
+        <section id="hero">
+            <div class="hero-bg-grid"></div>
+            
+            <!-- Content on Left -->
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="status-dot"></span> Available for Work
                 </div>
-            </div>
-        </div>
-    </section>
+                <h1>Hi, I'm <span class="gradient-text">M. Ali Raza</span></h1>
+                <h2 class="hero-subtitle">I'm a <span id="typing-text"></span></h2>
+                <p>I specialize in building scalable, high-performance web applications. With 2 years of hands-on experience, I bring ideas to life using modern technologies like React, Next.js, Node.js, and MongoDB.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="cta-button">Hire Me</a>
+                    <a href="Muhammad Ali Raza Full Stack Developer.pdf" download class="cta-button outline-btn">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2 class="section-title">My <span>Skills</span></h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fab fa-html5"></i>
+                <div class="social-links">
+                    <a href="https://github.com/muhammadnuman-eng" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/muhammad-ali-raza-911559382/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/+923404768806" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
-                <h3>HTML5</h3>
-                <p>Semantic markup, accessibility, and modern HTML5 features to create structured web content.</p>
-                <div class="skill-progress">
-                    <div class="skill-name">
-                        <span>Expert</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 95%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fab fa-css3-alt"></i>
-                </div>
-                <h3>CSS3</h3>
-                <p>Advanced styling, animations, flexbox, grid, and responsive design principles.</p>
-                <div class="skill-progress">
-                    <div class="skill-name">
-                        <span>Expert</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fab fa-js"></i>
-                </div>
-                <h3>JavaScript</h3>
-                <p>ES6+, DOM manipulation, async programming, and modern JavaScript patterns.</p>
-                <div class="skill-progress">
-                    <div class="skill-name">
-                        <span>Advanced</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fab fa-react"></i>
-                </div>
-                <h3>React</h3>
-                <p>Component-based architecture, hooks, context API, and state management.</p>
-                <div class="skill-progress">
-                    <div class="skill-name">
-                        <span>Advanced</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 88%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fab fa-vuejs"></i>
-                </div>
-                <h3>Vue.js</h3>
-                <p>Vue components, Vuex, Vue Router, and composition API for reactive UIs.</p>
-                <div class="skill-progress">
-                    <div class="skill-name">
-                        <span>Intermediate</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">
-                    <i class="fas fa-cube"></i>
-                </div>
-                <h3>Three.js</h3>
-                <p>Creating 3D graphics and animations for the web with WebGL.</p>
-                <div class="skill-progress">
-                    <div class="skill-name">
-                        <span>Intermediate</span>
-                        <span>70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 70%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">My <span>Projects</span></h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="3D Portfolio" class="project-image">
-                <div class="project-content">
-                    <h3>3D Portfolio Website</h3>
-                    <p>A modern portfolio website featuring 3D animations and interactive elements using Three.js.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Three.js</span>
-                        <span class="project-tag">GSAP</span>
-                        <span class="project-tag">JavaScript</span>
+                <!-- Stats Added Back as per Layout -->
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Projects</div>
                     </div>
-                    <div class="project-links">
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
+                    <div class="stat-item">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Years Exp.</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Satisfaction</div>
                     </div>
                 </div>
             </div>
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="E-commerce" class="project-image">
-                <div class="project-content">
-                    <h3>E-commerce Platform</h3>
-                    <p>A full-featured online store with product filtering, cart functionality, and secure checkout.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">React</span>
-                        <span class="project-tag">Redux</span>
-                        <span class="project-tag">Node.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Task Manager" class="project-image">
-                <div class="project-content">
-                    <h3>Task Management App</h3>
-                    <p>A productivity application for managing tasks with drag-and-drop functionality and team collaboration.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Vue.js</span>
-                        <span class="project-tag">Firebase</span>
-                        <span class="project-tag">Vuex</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="#"><i class="fab fa-github"></i> Code</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2 class="section-title">Client <span>Testimonials</span></h2>
-        <div class="testimonials-container">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "Ali delivered an outstanding website for our company. His attention to detail and creative solutions exceeded our expectations. The project was completed on time and within budget."
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="author-avatar">
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <p>CEO, TechSolutions Inc.</p>
-                    </div>
-                </div>
+            <!-- Image on Right -->
+            <div class="hero-image-wrapper">
+                <div class="glow-circle"></div>
+                <img src="my image.png" alt="M. Ali Raza Full Stack Developer Illustration" class="hero-img">
+                <div class="floating-icon icon-1"><i class="fab fa-react"></i></div>
+                <div class="floating-icon icon-2"><i class="fab fa-node-js"></i></div>
+                <div class="floating-icon icon-3"><i class="fab fa-js"></i></div>
+                <div class="floating-icon icon-4"><i class="fas fa-database"></i></div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "Working with Ali was a pleasure. He transformed our outdated website into a modern, responsive platform that has significantly improved our user engagement and conversion rates."
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Michael Chen" class="author-avatar">
-                    <div class="author-info">
-                        <h4>Michael Chen</h4>
-                        <p>Marketing Director, Global Corp</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "Ali's technical expertise and creative vision brought our e-commerce platform to life. His ability to understand our business needs and translate them into a functional website was impressive."
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Emma Rodriguez" class="author-avatar">
-                    <div class="author-info">
-                        <h4>Emma Rodriguez</h4>
-                        <p>Founder, Boutique Online</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In <span>Touch</span></h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Transforming Ideas into Digital Reality</h3>
+                    <p>I'm a passionate <strong>Full Stack Developer</strong> based in San Francisco, CA, with 2 years of professional experience crafting end-to-end web solutions. My expertise spans across both frontend and backend technologies, allowing me to build seamless, efficient, and scalable applications.</p>
+                    <p>My tech stack revolves around the MERN ecosystem (MongoDB, Express, React, Node.js), Next.js for optimized rendering, and Python/MySQL for robust backend architectures. I am deeply committed to writing clean, maintainable code and designing intuitive user experiences.</p>
+                    <p>Whether it's building a complex web application from scratch or optimizing an existing platform, I thrive on solving challenging problems and delivering products that make an impact.</p>
+                    <a href="Muhammad Ali Raza Full Stack Developer.pdf" download class="cta-button outline-btn">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+                <div class="about-image">
+                    <div class="profile-card">
+                        <div class="card-front">
+                            <img src="my image.png" alt="Portrait of M. Ali Raza" class="profile-pic">
+                            <h3>M. Ali Raza</h3>
+                            <p>Full Stack Developer</p>
                         </div>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <a href="mailto:ali.raza@example.com">ali.raza@example.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Phone</h4>
-                            <a href="tel:+1234567890">+1 (234) 567-890</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Location</h4>
-                            <p>San Francisco, CA</p>
+                        <div class="card-back">
+                            <p>"I turn ideas into interactive realities with clean code, scalable architecture, and creative solutions."</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button">Send Message</button>
-                </form>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <h3>HTML5</h3>
+                    <p>Semantic markup, accessibility, and modern HTML5 features.</p>
+                    <div class="skill-progress"><div class="skill-name"><span>Expert</span><span>95%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 95%"></div></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                    <h3>CSS3</h3>
+                    <p>Advanced styling, animations, flexbox, grid, and responsive design.</p>
+                    <div class="skill-progress"><div class="skill-name"><span>Expert</span><span>90%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-js"></i></div>
+                    <h3>JavaScript</h3>
+                    <p>ES6+, DOM manipulation, async programming, and API integration.</p>
+                    <div class="skill-progress"><div class="skill-name"><span>Advanced</span><span>85%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-react"></i></div>
+                    <h3>React</h3>
+                    <p>Component-based architecture, hooks, context API, and Redux.</p>
+                    <div class="skill-progress"><div class="skill-name"><span>Advanced</span><span>85%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Next.js</h3>
+                    <p>SSR, SSG, and building optimized production-ready React apps.</p>
+                    <div class="skill-progress"><div class="skill-name"><span>Intermediate</span><span>80%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                    <h3>Node.js</h3>
+                    <p>RESTful APIs, Express.js, authentication, and backend logic.</p>
+                    <div class="skill-progress"><div class="skill-name"><span>Advanced</span><span>80%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3>MongoDB</h3>
+                    <p>NoSQL database design, aggregation, and Mongoose ODM.</p>
+                    <div class="skill-progress"><div class="skill-name"><span>Intermediate</span><span>75%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <h3>Python</h3>
+                    <p>Scripting, automation, and backend logic with Flask/Django.</p>
+                    <div class="skill-progress"><div class="skill-name"><span>Intermediate</span><span>70%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <h3>MySQL</h3>
+                    <p>Relational database design, queries, and optimization.</p>
+                    <div class="skill-progress"><div class="skill-name"><span>Intermediate</span><span>75%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">My <span>Projects</span></h2>
+            <div class="projects-container">
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="/muhammad-ali-raza/projects-Images/portfolioWebiste.png" alt="Full Stack E-commerce Dashboard" class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-tags"><span class="project-tag">Next.js</span><span class="project-tag">Node.js</span><span class="project-tag">MongoDB</span></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>A responsive portfolio website showcasing my skills and projects as a full-stack developer.</p>
+                        <div class="project-links"><a href="https://hassanfarooqi.site/" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#" aria-label="Source Code"><i class=""></i> </a></div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="/muhammad-ali-raza/projects-Images/exact.png" alt="Exact Flow" class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-tags"><span class="project-tag">Node.js</span><span class="project-tag">Express</span><span class="project-tag">MySQL</span></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Exact Flow</h3>
+                        <p>An autonomous AI Agent platform designed to automate complex workflows and streamline digital tasks with precision.</p>
+                        <div class="project-links"><a href="https://www.exactflow.com/en" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#" aria-label="Source Code"><i class=""></i></a></div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Real-time Chat Application Interface" class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-tags"><span class="project-tag">React</span><span class="project-tag">Socket.io</span><span class="project-tag">MongoDB</span></div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Real-time Chat App</h3>
+                        <p>A real-time social platform with chat, live notifications, and posts using React and Socket.io.</p>
+                        <div class="project-links"><a href="#" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#" aria-label="Source Code"><i class="fab fa-github"></i> Code</a></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Let's Work <span>Together</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have a project in mind or looking for a dedicated developer? I'm currently available for freelance work and full-time positions. Let's build something amazing together.</p>
+                    <div class="contact-details">
+                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><h4>Email</h4><a href="mailto:ali.raza@example.com">ali.raza@example.com</a></div></div>
+                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-text"><h4>Phone</h4><a href="tel:+1234567890">+1 (234) 567-890</a></div></div>
+                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-text"><h4>Location</h4><p>San Francisco, CA</p></div></div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group"><label for="name">Name</label><input type="text" id="name" required></div>
+                        <div class="form-group"><label for="email">Email</label><input type="email" id="email" required></div>
+                        <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" required></div>
+                        <div class="form-group"><label for="message">Message</label><textarea id="message" required></textarea></div>
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 M. Ali Raza. All rights reserved.</p>
-    </footer>
+    <footer><p>&copy; 2024 Muhammad Ali Raza. All rights reserved.</p></footer>
 
     <!-- Theme Toggle Button -->
-    <div class="theme-toggle">
-        <i class="fas fa-moon"></i>
-    </div>
+    <div class="theme-toggle" role="button" aria-label="Toggle Dark/Light Mode"><i class="fas fa-moon"></i></div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
     <script src="index.js"></script>
 </body>
-</html> 
+</html>
