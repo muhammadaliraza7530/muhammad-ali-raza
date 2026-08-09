@@ -1,0 +1,16 @@
+{
+  "name": "muhammad-ali-raza-portfolio",
+  "version": "1.0.0",
+  "description": "Full Stack Developer Portfolio",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'No build step required'",
+    "lint": "echo 'No linting required'",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

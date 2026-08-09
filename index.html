@@ -51,10 +51,18 @@
         <div class="nav-container">
             <a href="#" class="logo">M. Ali <span>Raza</span></a>
             <div class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-cta">Hire Me</a>
+                <div class="mobile-drawer-header">
+                    <span class="drawer-logo">M. Ali <span>Raza</span></span>
+                    <div class="drawer-close" id="drawer-close" role="button" aria-label="Close Menu"><i class="fas fa-times"></i></div>
+                </div>
+                <a href="#about" class="nav-link"><i class="fas fa-user nav-icon"></i> About</a>
+                <a href="#skills" class="nav-link"><i class="fas fa-code nav-icon"></i> Skills</a>
+                <a href="#projects" class="nav-link"><i class="fas fa-laptop-code nav-icon"></i> Projects</a>
+                <a href="#contact" class="nav-cta"><i class="fab fa-whatsapp nav-icon"></i> Hire Me</a>
+                <div class="mobile-drawer-footer">
+                    <a href="https://wa.me/923404768806" target="_blank" class="drawer-social-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="mailto:techaliraza838@gmail.com" target="_blank" class="drawer-social-btn"><i class="fas fa-envelope"></i> Email</a>
+                </div>
             </div>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -91,7 +99,7 @@
                 <div class="social-links">
                     <a href="https://github.com/muhammadnuman-eng" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/muhammad-ali-raza-911559382/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/+923404768806" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/923404768806" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
 
                 <!-- Stats Added Back as per Layout -->
@@ -128,7 +136,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Transforming Ideas into Digital Reality</h3>
-                    <p>I'm a passionate <strong>Full Stack Developer</strong> based in San Francisco, CA, with 2 years of professional experience crafting end-to-end web solutions. My expertise spans across both frontend and backend technologies, allowing me to build seamless, efficient, and scalable applications.</p>
+                    <p>I'm a passionate <strong>Full Stack Developer</strong> based in Lahore, Punjab, Pakistan, with 2 years of professional experience crafting end-to-end web solutions. My expertise spans across both frontend and backend technologies, allowing me to build seamless, efficient, and scalable applications.</p>
                     <p>My tech stack revolves around the MERN ecosystem (MongoDB, Express, React, Node.js), Next.js for optimized rendering, and Python/MySQL for robust backend architectures. I am deeply committed to writing clean, maintainable code and designing intuitive user experiences.</p>
                     <p>Whether it's building a complex web application from scratch or optimizing an existing platform, I thrive on solving challenging problems and delivering products that make an impact.</p>
                     <a href="Muhammad Ali Raza Full Stack Developer.pdf" download class="cta-button outline-btn">
@@ -217,7 +225,7 @@
             <div class="projects-container">
                 <article class="project-card">
                     <div class="project-image-wrapper">
-                        <img src="/muhammad-ali-raza/projects-Images/portfolioWebiste.png" alt="Full Stack E-commerce Dashboard" class="project-image">
+                        <img src="projects-Images/portfolioWebiste.png" alt="Full Stack E-commerce Dashboard" class="project-image">
                         <div class="project-overlay">
                             <div class="project-tags"><span class="project-tag">Next.js</span><span class="project-tag">Node.js</span><span class="project-tag">MongoDB</span></div>
                         </div>
@@ -230,7 +238,7 @@
                 </article>
                 <article class="project-card">
                     <div class="project-image-wrapper">
-                        <img src="/muhammad-ali-raza/projects-Images/exact.png" alt="Exact Flow" class="project-image">
+                        <img src="projects-Images/exact.png" alt="Exact Flow" class="project-image">
                         <div class="project-overlay">
                             <div class="project-tags"><span class="project-tag">Node.js</span><span class="project-tag">Express</span><span class="project-tag">MySQL</span></div>
                         </div>
@@ -243,15 +251,15 @@
                 </article>
                 <article class="project-card">
                     <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Real-time Chat Application Interface" class="project-image">
+                        <img src="projects-Images/nuventure.jpg" alt="Nuventure Technology Solutions" class="project-image">
                         <div class="project-overlay">
-                            <div class="project-tags"><span class="project-tag">React</span><span class="project-tag">Socket.io</span><span class="project-tag">MongoDB</span></div>
+                            <div class="project-tags"><span class="project-tag">React</span><span class="project-tag">Next.js</span><span class="project-tag">Node.js</span><span class="project-tag">Cloud</span></div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>Real-time Chat App</h3>
-                        <p>A real-time social platform with chat, live notifications, and posts using React and Socket.io.</p>
-                        <div class="project-links"><a href="#" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#" aria-label="Source Code"><i class="fab fa-github"></i> Code</a></div>
+                        <h3>Nuventure</h3>
+                        <p>A global technology platform offering custom software development, web & mobile applications, cloud solutions, and digital transformation services.</p>
+                        <div class="project-links"><a href="https://nuventure.pk/" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i> Live Demo</a></div>
                     </div>
                 </article>
             </div>
@@ -265,18 +273,34 @@
                     <h3>Get in Touch</h3>
                     <p>Have a project in mind or looking for a dedicated developer? I'm currently available for freelance work and full-time positions. Let's build something amazing together.</p>
                     <div class="contact-details">
-                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><h4>Email</h4><a href="mailto:ali.raza@example.com">ali.raza@example.com</a></div></div>
-                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-text"><h4>Phone</h4><a href="tel:+1234567890">+1 (234) 567-890</a></div></div>
-                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-text"><h4>Location</h4><p>San Francisco, CA</p></div></div>
+                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><h4>Email</h4><a href="mailto:techaliraza838@gmail.com" target="_blank">techaliraza838@gmail.com</a></div></div>
+                        <div class="contact-item"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div class="contact-text"><h4>WhatsApp / Phone</h4><a href="https://wa.me/923404768806" target="_blank">+92 340 4768806</a></div></div>
+                        <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-text"><h4>Location</h4><p>Lahore, Punjab, Pakistan</p></div></div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
-                        <div class="form-group"><label for="name">Name</label><input type="text" id="name" required></div>
-                        <div class="form-group"><label for="email">Email</label><input type="email" id="email" required></div>
-                        <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" required></div>
-                        <div class="form-group"><label for="message">Message</label><textarea id="message" required></textarea></div>
-                        <button type="submit" class="cta-button">Send Message</button>
+                    <form id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                            <small class="error-msg" id="name-error"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Your Email">
+                            <small class="error-msg" id="email-error"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Subject">
+                            <small class="error-msg" id="subject-error"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                            <small class="error-msg" id="message-error"></small>
+                        </div>
+                        <button type="submit" class="cta-button"><i class="fab fa-whatsapp"></i> Send Message on WhatsApp</button>
                     </form>
                 </div>
             </div>
@@ -288,6 +312,9 @@
 
     <!-- Theme Toggle Button -->
     <div class="theme-toggle" role="button" aria-label="Toggle Dark/Light Mode"><i class="fas fa-moon"></i></div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
