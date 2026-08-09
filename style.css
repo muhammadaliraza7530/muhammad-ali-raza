@@ -37,9 +37,26 @@ body.light-mode ::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.2); }
     background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--border-color); border-radius: 16px; transition: all 0.4s ease;
 }
-.navbar.scrolled { top: 10px; background: rgba(10, 10, 10, 0.9); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.navbar.scrolled {
+    top: 10px;
+    background: rgba(14, 14, 14, 0.92);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.light-mode .navbar {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
 .nav-container { padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 24px; font-weight: 700; color: var(--text-color); text-decoration: none; }
+.logo { font-size: 24px; font-weight: 700; color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
 .logo span { color: var(--accent-color); }
 
 /* Desktop Nav Links Default State */
