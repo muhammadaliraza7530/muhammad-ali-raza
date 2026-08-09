@@ -13,7 +13,7 @@ function toggleMenu() {
     if (navLinks.classList.contains("active")) {
         document.body.style.overflow = 'hidden';
     } else {
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
     }
 }
 
@@ -110,24 +110,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero Animations
-        gsap.from('.hero-badge', { duration: 1, y: -20, opacity: 0, ease: 'power3.out' });
-        gsap.from('.hero-content h1', { duration: 1, y: 50, opacity: 0, delay: 0.1, ease: 'power3.out' });
-        gsap.from('.hero-subtitle', { duration: 1, y: 50, opacity: 0, delay: 0.2, ease: 'power3.out' });
-        gsap.from('.hero-content p', { duration: 1, y: 50, opacity: 0, delay: 0.3, ease: 'power3.out' });
-        gsap.from('.hero-buttons', { duration: 1, y: 50, opacity: 0, delay: 0.4, ease: 'power3.out' });
-        gsap.from('.social-links a', { duration: 1, y: 50, opacity: 0, delay: 0.6, stagger: 0.1, ease: 'power3.out' });
-        gsap.from('.stats-container', { duration: 1, y: 50, opacity: 0, delay: 0.8, ease: 'power3.out' });
-        gsap.from('.hero-image-wrapper', { duration: 1.2, x: 100, opacity: 0, delay: 0.5, ease: 'power3.out' });
-        gsap.from('.floating-icon', { duration: 1, scale: 0, opacity: 0, delay: 1, stagger: 0.2, ease: 'back.out(1.7)' });
+        // Hero Entrance Animation (Fade-In & Slide-Up for Hero Content)
+        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-        // Section Animations
+        heroTl.fromTo(
+            ['.hero-badge', '.hero-content h1', '.hero-subtitle', '.hero-content p', '.hero-buttons', '.social-links', '.stats-container'],
+            { opacity: 0, y: 35 },
+            { opacity: 1, y: 0, duration: 0.85, stagger: 0.12, delay: 0.1 }
+        )
+        .fromTo('.hero-image-wrapper',
+            { opacity: 0, x: 60 },
+            { opacity: 1, x: 0, duration: 1 },
+            "-=0.6"
+        )
+        .fromTo('.floating-icon',
+            { opacity: 0, scale: 0 },
+            { opacity: 1, scale: 1, duration: 0.8, stagger: 0.15, ease: 'back.out(1.7)' },
+            "-=0.5"
+        );
+
+        // Section Animations (About, Skills, Projects, Contact Fade-In & Slide-Up)
         gsap.utils.toArray('section').forEach(section => {
             if (section.id !== 'hero') {
-                gsap.from(section, {
-                    scrollTrigger: { trigger: section, start: 'top 80%' },
-                    y: 50, opacity: 0, duration: 1, ease: 'power3.out'
-                });
+                gsap.fromTo(section,
+                    { opacity: 0, y: 60 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.1,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top 82%',
+                            toggleActions: 'play none none none'
+                        }
+                    }
+                );
             }
         });
 
@@ -170,17 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 0.6,
             stagger: 0.15,
             ease: 'power3.out'
-        });
-
-        // Animate Progress Bars
-        gsap.utils.toArray('.progress-fill').forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            ScrollTrigger.create({
-                trigger: bar,
-                start: 'top 85%',
-                onEnter: () => gsap.to(bar, { width: width, duration: 1.5, ease: 'power3.out' })
-            });
         });
     }
 });
@@ -307,11 +314,38 @@ if (contactForm) {
             return;
         }
 
-        // All fields are valid -> construct WhatsApp message
+        // All fields are valid -> construct WhatsApp message & trigger success confetti
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
         const subject = subjectInput.value.trim();
         const message = messageInput.value.trim();
+
+        // Confetti Celebration Effect
+        if (typeof confetti === "function") {
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#00a8ff', '#00d2d3', '#5f27cd', '#ff9f43', '#2ed573']
+            });
+            setTimeout(() => {
+                confetti({
+                    particleCount: 60,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 }
+                });
+                confetti({
+                    particleCount: 60,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 }
+                });
+            }, 200);
+        }
+
+        // Show Toast Feedback
+        showSuccessToast("Message validated! Redirecting to WhatsApp...");
 
         const formattedText = `*New Portfolio Contact Message*\n\n` +
             `👤 *Name:* ${name}\n` +
@@ -322,8 +356,28 @@ if (contactForm) {
         const whatsappNumber = "923404768806";
         const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(formattedText)}`;
 
-        window.open(whatsappUrl, "_blank");
+        setTimeout(() => {
+            window.open(whatsappUrl, "_blank");
+        }, 900);
     });
+}
+
+// Success Toast Helper Function
+function showSuccessToast(msg) {
+    let toast = document.querySelector(".form-toast");
+    if (!toast) {
+        toast = document.createElement("div");
+        toast.className = "form-toast";
+        toast.innerHTML = `<i class="fas fa-check-circle"></i> <span>${msg}</span>`;
+        document.body.appendChild(toast);
+    } else {
+        toast.querySelector("span").textContent = msg;
+    }
+    
+    setTimeout(() => toast.classList.add("show"), 10);
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 4000);
 }
 
 // Scroll to Top Logic
@@ -346,4 +400,72 @@ if (scrollToTopBtn) {
             behavior: "smooth"
         });
     });
+}
+
+// Copy Email & Toast Notification Logic
+const copyEmailBtn = document.getElementById("copy-email-btn");
+const emailAddress = "techaliraza838@gmail.com";
+let toastTimer;
+
+function triggerToast(message = "Email copied to clipboard!") {
+    const toast = document.getElementById("toast-notification");
+    if (!toast) return;
+
+    const toastMsg = toast.querySelector(".toast-message");
+    if (toastMsg) toastMsg.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+}
+
+if (copyEmailBtn) {
+    copyEmailBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const onSuccess = () => {
+            triggerToast("Email copied to clipboard!");
+
+            const icon = copyEmailBtn.querySelector("i");
+            const span = copyEmailBtn.querySelector("span");
+
+            if (icon) icon.className = "fas fa-check";
+            if (span) span.textContent = "Copied!";
+            copyEmailBtn.classList.add("copied");
+
+            setTimeout(() => {
+                if (icon) icon.className = "far fa-copy";
+                if (span) span.textContent = "Copy";
+                copyEmailBtn.classList.remove("copied");
+            }, 2200);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(emailAddress).then(onSuccess).catch(() => {
+                fallbackCopyText(emailAddress, onSuccess);
+            });
+        } else {
+            fallbackCopyText(emailAddress, onSuccess);
+        }
+    });
+}
+
+function fallbackCopyText(text, callback) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand("copy");
+        if (callback) callback();
+    } catch (err) {
+        console.error("Copy failed", err);
+    }
+    document.body.removeChild(textarea);
 }
