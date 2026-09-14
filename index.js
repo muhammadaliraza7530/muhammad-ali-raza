@@ -35,6 +35,29 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     });
 });
 
+// SPA-style Hash Routing without page reload
+const projectRouteLink = document.querySelector('[data-route="all-projects"]');
+
+function updateProjectRoute() {
+    const isProjectRoute = window.location.hash === '#all-projects';
+    document.body.classList.toggle('project-page-mode', isProjectRoute);
+
+    if (isProjectRoute && document.getElementById('projects')) {
+        setTimeout(() => {
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+    }
+}
+
+if (projectRouteLink) {
+    projectRouteLink.addEventListener('click', () => {
+        window.location.hash = 'all-projects';
+    });
+}
+
+window.addEventListener('hashchange', updateProjectRoute);
+window.addEventListener('DOMContentLoaded', updateProjectRoute);
+
 // Navbar Scroll Effect & Active Link Highlighting
 const navbar = document.querySelector('.navbar');
 const sections = document.querySelectorAll('section');
